@@ -1,0 +1,10 @@
+body{
+}
+
+#home1
+{
+  height: 100vh;
+  background-image: url("../Images/Home/Landing_Vector.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
