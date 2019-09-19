@@ -1,4 +1,9 @@
-body{
+
+
+body
+{
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #home1
@@ -7,4 +12,28 @@ body{
   background-image: url("../Images/Home/Landing_Vector.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+.navbar
+{
+  margin-left: auto;
+  background-color: #484747;
+  padding: 15px;
+  font-weight: 700;
+}
+.navbar ul
+{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar li {
+  display: inline;
+  margin-left:20px;
+}
+
+.navbar a
+{
+  text-decoration: none;
+  color: #eee;
 }
