@@ -1,30 +1,113 @@
-
-
 body
 {
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
 }
 
-#home1
+.container
 {
-  height: 100vh;
-  background-image: url("../Images/Home/Landing_Vector.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  padding-right:15px;
+  padding-left:15px;
+  margin-right:auto;
+  margin-left:auto;
 }
+
+/*Generic Styling*/
+.mybtn
+{
+  display:inline-block;
+  font-weight:400;
+  text-align:center;
+  padding:.375rem .75rem;
+  border-radius: .25rem;
+  font-size: 1rem;
+  border: 1px solid transparent;
+}
+
+.btn-blue
+{
+  color: #007bff;
+  border-color: #007bff;
+  background-color: transparent;
+}
+
+.btn-green
+{
+  color: #fff;
+  background-color: #28a745;
+}
+
+.btn-blue:hover
+{
+  background-color: #007bff;
+  color:#fff;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
+{
+  margin-top:0rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+h1
+{
+  font-size: 2.5rem;
+}
+
+h2
+{
+  font-size: 2rem;
+}
+
+h3
+{
+  font-size: 1.75rem;
+}
+
+h4
+{
+  font-size: 1.5rem;
+}
+h5
+{
+  font-size: 1.25rem;
+}
+
+h6
+{
+  font-size: 1rem;
+}
+
+section
+{
+  display:block;
+}
+
 .navbar
 {
+  display: flex;
   margin-left: auto;
   background-color: #484747;
   padding: 15px;
   font-weight: 700;
+  align-items: center;
+  padding: .5rem 3rem;
 }
 .navbar ul
 {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
+
+}
+
+.navContent
+{
+  align-items: center;
+  display: inline-block;
+  display: flex;
+  margin-left:auto;
 }
 
 .navbar li {
@@ -36,4 +119,25 @@ body
 {
   text-decoration: none;
   color: #eee;
+}
+
+/*Custom CSS*/
+#home1
+{
+  height: 100vh;
+  background-image: url("../Images/Home/Landing_Vector.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+#home2
+{
+  height: 100vh;
+
+}
+
+.mnav
+{
+  position: absolute;
+  width:100%;
 }
