@@ -13,22 +13,23 @@ body
 }
 
 /*Generic Styling*/
+/*Buttons*/
 .mybtn
 {
   display:inline-block;
   font-weight:400;
   text-align:center;
   padding:.375rem .75rem;
-  border-radius: .25rem;
+  border-radius: 0rem;
   font-size: 1rem;
   border: 1px solid transparent;
 }
 
 .btn-blue
 {
-  color: #007bff;
+  color: #fff;
   border-color: #007bff;
-  background-color: transparent;
+  background-color: #007bff;
 }
 
 .btn-green
@@ -43,6 +44,12 @@ body
   color:#fff;
 }
 
+button:hover
+{
+  cursor:pointer;
+}
+
+/*Headings*/
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
 {
   margin-top:0rem;
@@ -79,20 +86,51 @@ h6
   font-size: 1rem;
 }
 
+.cwhite
+{
+  color:#fff;
+}
+
+.fw400
+{
+  font-weight: 400;
+}
+/*Sections*/
 section
 {
   display:block;
 }
 
+/*Card*/
+.card
+{
+  position: relative;
+  display: flex;
+  border: 1px solid rgb(0,0,0,0.125);
+  border-radius: 0.5rem;
+}
+
+.cardhome
+{
+  background-color:#eee;
+  justify-content: center;
+}
+
+.cardhome:hover
+{
+  background-color: #fafafa;
+}
+
+/*Navbar*/
 .navbar
 {
   display: flex;
   margin-left: auto;
-  background-color: #484747;
+  background-color: rgba(45,45,45,0.98);
   padding: 15px;
-  font-weight: 700;
+  font-weight: 400;
   align-items: center;
-  padding: .5rem 3rem;
+  padding: .5rem 4rem;
 }
 .navbar ul
 {
@@ -118,26 +156,56 @@ section
 .navbar a
 {
   text-decoration: none;
-  color: #eee;
+  color: #fff;
+
 }
 
+/*Rows and Columns*/
+.row
+{
+  display: flex;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.halfcol
+{
+  flex: 0 0 50%;
+}
+.col18
+{
+  flex: 0 0 12.5%;
+}
+.halfcol, .col18
+{
+  padding-left: 15px;
+  padding-right: 15px;
+}
 /*Custom CSS*/
+/*Home Page*/
+/*Section 1*/
 #home1
 {
   height: 100vh;
-  background-image: url("../Images/Home/Landing_Vector.jpg");
+  background-image: url("../Images/Home/1576.png");
   background-repeat: no-repeat;
   background-size: cover;
+  align-items: center;
+  text-align: center;
 
 }
+
+
+/*Section 2*/
 #home2
 {
   height: 100vh;
-
+  width:100%;
+  background-color: #fafafa;
 }
 
 .mnav
 {
-  position: absolute;
+  position: relative;
   width:100%;
+  margin-bottom: 40px;
 }
