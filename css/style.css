@@ -1,7 +1,46 @@
+*
+{
+  box-sizing: border-box;
+}
 body
 {
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+}
+img
+{
+  vertical-align: middle;
+  border-style: none;
+}
+
+.fluid
+{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+p
+{
+  margin: 0;
+}
+
+.zoom:hover {
+  transform: scale(1.1); 
+  transition: transform .5s;
+  transition-timing-function: linear;
+
+}
+
+.zoom
+{
+  cursor: pointer;
+}
+
+.zoom h3
+{
+  cursor: pointer;
 }
 
 .container
@@ -75,15 +114,18 @@ h3
 h4
 {
   font-size: 1.5rem;
+  font-weight: 400;
 }
 h5
 {
   font-size: 1.25rem;
+  font-weight: 400;
 }
 
 h6
 {
   font-size: 1rem;
+  font-weight: 400;
 }
 
 .cwhite
@@ -108,6 +150,11 @@ section
   display: flex;
   border: 1px solid rgb(0,0,0,0.125);
   border-radius: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 1rem;
 }
 
 .cardhome
@@ -119,6 +166,17 @@ section
 .cardhome:hover
 {
   background-color: #fafafa;
+}
+
+.home-card-image
+{
+  width:50%;
+  padding-bottom: 10px;
+}
+.home-prod-image
+{
+  width:80%;
+  padding-bottom: 10px;
 }
 
 /*Navbar*/
@@ -166,19 +224,47 @@ section
   display: flex;
   margin-right: -15px;
   margin-left: -15px;
+  flex-wrap: wrap;
 }
+.halfcol, .quarcol, .eightcol, .sixcol
+{
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 50%;
+}
+
 .halfcol
 {
   flex: 0 0 50%;
 }
-.col18
+
+.quarcol
+{
+  flex: 0 0 25%;
+}
+
+.eightcol
 {
   flex: 0 0 12.5%;
 }
-.halfcol, .col18
+
+.sixcol
 {
-  padding-left: 15px;
-  padding-right: 15px;
+  flex: 0 0 16.67%;
+}
+
+/*CARDS*/
+.card
+{
+  position: relative;
+  word-wrap: break-word;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  display: flex;
+  padding-bottom: .65rem;
 }
 /*Custom CSS*/
 /*Home Page*/
@@ -191,16 +277,17 @@ section
   background-size: cover;
   align-items: center;
   text-align: center;
-
+  margin-bottom:15px;
 }
 
 
 /*Section 2*/
 #home2
 {
-  height: 100vh;
   width:100%;
-  background-color: #fafafa;
+  background-color: #f9f9f9;
+  margin-bottom:15px;
+  padding-bottom:20px;
 }
 
 .mnav
@@ -208,4 +295,10 @@ section
   position: relative;
   width:100%;
   margin-bottom: 40px;
+}
+
+
+.prod-desc
+{
+  color:#555;
 }
