@@ -1,34 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-      <title>CenPharma</title>
-      <link href="./css/style.css" rel="stylesheet" />
-      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,900&display=swap" rel="stylesheet">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <?php require("./partials/metahome.php");?>
   </head>
   <body >
     <section id="home1" style="background-color:#000;">
       <div class="mnav">
-          <nav class="navbar">
-              <a href="./index.html"><img style="height:30px; width:auto;" src="./Images/CenPharma_Logo.png" alt="CenPharma"/></a>
-              <a href="./index.html" style="margin-left:10px;">
-                CenPharma
-              </a>
-            <div class="navContent">
-              <ul style="margin-right:auto;">
-                <li><a href="pharmacy.html">Pharmacies</a></li>
-                <li><a href="medicine.html">Medicines</a></li>
-                <li><a href="login.html">Login</a></li>
-              </ul>
-            </div>
-          </nav>
+      <?php
+      require("./partials/navbarhome.php");
+      ?>
         </div>
         <br />
         <h1 class="cwhite">CenPharma</h1>
         <h4 class="cwhite fw400">Medicines delivered fast!</h4>
         <br />
-        <h4 class="fw400"><a style="text-decoration:none; color:#6bf;" href="./medicines.php">Order Now ></a></h4>
+        <h4 class="fw400"><a style="text-decoration:none; color:#6bf;" href="./medicine">Order Now ></a></h4>
     </section>
     <section id="home2">
       <div style="text-align:center; padding-top:20px; padding-bottom:20px;">
@@ -132,6 +118,9 @@
       </div>
     </div>
     </section>
+    <?php
+    require("./partials/footerhome.php");
+    ?>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="./js/cenpharma.js"></script>
   </body>

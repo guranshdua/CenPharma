@@ -7,6 +7,7 @@ body
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
     background-color: #fff;
+    overflow-x: hidden;;
 }
 img
 {
@@ -59,7 +60,7 @@ p
   font-weight:400;
   text-align:center;
   padding:.375rem .75rem;
-  border-radius: 0rem;
+  border-radius: .25rem;
   font-size: 1rem;
   border: 1px solid transparent;
 }
@@ -301,4 +302,123 @@ section
 .prod-desc
 {
   color:#555;
+}
+
+/*Footer CSS*/
+#myfooter
+{
+  	bottom: 0;
+  	width: 100%;
+  	background-color: #3c3d41;
+  	color:white;
+  	font-size: 15px;
+
+}
+
+#myfooter .row
+{
+	margin-bottom: 15px;
+	padding-top: 15px;
+}
+
+
+.footcontent
+{
+
+	padding-top: 15px;
+	padding-bottom: 1px;
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.copyright-text
+{
+	background-color: #333333;
+	text-align: center !important;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color:#ddd;
+}
+
+.logofoot
+{
+	display: inline-block;
+	position: relative;
+	width:100%;
+	height:auto;
+}
+
+#myfooter ul
+{
+	list-style-type: none;
+	padding-left: 0;'
+	line-height: 1.7;
+}
+
+#myfooter li
+{
+	margin-bottom:2px;
+}
+
+#myfooter h5
+{
+	margin-bottom: 12px;
+}
+
+#myfooter a
+{
+	color: #d2d1d1;
+	text-decoration: none;
+}
+
+#myfooter a:hover,
+#myFooter a:focus
+{
+	color: #eee;
+	text-decoration: none;
+}
+
+#myfooter div
+{
+	text-align: left;
+}
+
+#myfooter .column
+{
+	padding-bottom: 20px
+}
+
+#myfooter img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width:100px;
+	width:70%;
+	height:auto;
+}
+
+@media (max-width: 990px) {
+    #myfooter div {
+        text-align: center !important;
+    }
+    #myfooter .column
+    {
+    	margin-right: auto !important;
+    	margin-left: auto !important;
+    }
+}
+
+
+.myform
+{
+  display:inline-block;
+  width:100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight:400;
+  line-height: 1.2;
+  border:1px solid;
+  border-radius:.1rem;
 }
