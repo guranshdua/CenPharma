@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost","","","cenpharma");
+$con = mysqli_connect("localhost","root","12345678","cenpharma");
 session_start();
 // Check connection
 if (mysqli_connect_errno())

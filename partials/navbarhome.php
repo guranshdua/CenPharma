@@ -7,7 +7,7 @@
           <ul style="margin-right:auto;">
             <li><a href="./pharmacies">Pharmacies</a></li>
             <li><a href="./medicine">Medicines</a></li>
-            <li><a href="./login.php">Login</a></li>
+            <li><a href="./<?php if(isset($_SESSION['cenuser'])){echo "logout";} else{ echo "login"; } ?>.php"><?php if(isset($_SESSION['cenuser'])){echo "Logout";} else{ echo "Login"; } ?></a></li>
           </ul>
         </div>
       </nav>

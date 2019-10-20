@@ -5,9 +5,8 @@
           </a>
         <div class="navContent">
           <ul style="margin-right:auto;">
-            <li><a href="../pharmacies">Pharmacies</a></li>
-            <li><a href="../medicine">Medicines</a></li>
-            <li><a href="../<?php if(isset($_SESSION['cenuser'])){echo "logout";} else{ echo "login"; } ?>.php"><?php if(isset($_SESSION['cenuser'])){echo "Logout";} else{ echo "Login"; } ?></a></li>
+            <li style="color:white;"><?php echo $_SESSION['cenadminname'];?></li>
+            <li><a href="./logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>

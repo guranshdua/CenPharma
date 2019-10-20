@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <?php require("./partials/metahome.php");?>
+  <?php require("./partials/metahome.php");
+  require("./auth/db.php");
+  ?>
+
   </head>
   <body >
     <section id="home1" style="background-color:#000;">
@@ -185,17 +188,7 @@
           <div class="col4">
             <div class="card white" style="justify-content:center; padding-top:0px;">
               <div class="box">
-                <img class="round-circle-img-home"src="Images/Home/IMG_0115<div class="col4">
-                  <div class="card white" style="justify-content:center; padding-top:0px;">
-                    <div class="box">
-                      <img class="round-circle-img-home"src="Images/Home/IMG_6723_1.jpg" />
-                      <h4 class="fw600" style="margin-bottom:5px;">Guransh Dua</h4>
-                      <p class="title" style="margin-bottom:15px;">Developer</p>
-                      <p class="desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      </p>
-                    </div>
-                  </div>
+                <img class="round-circle-img-home"src="Images/Home/IMG_0115" />
                 <h4 class="fw600" style="margin-bottom:5px;">Rhythm Goyal</h4>
                 <p class="title" style="margin-bottom:15px;">Developer</p>
                 <p class="desc">
