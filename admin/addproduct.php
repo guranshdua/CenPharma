@@ -10,7 +10,7 @@
   {
     extract($_POST);
     $currentDir = getcwd();
-    chdir('../Images/pharmacies/');
+    chdir('../Images/products/');
     $uploadDirectory = getcwd();
     $errors = []; // Store all foreseen and unforseen errors here
     $fileExtensions = ['jpeg','jpg','png']; // Get all the file extensions
@@ -38,8 +38,8 @@
           while($check==1)
           {
             $id=rand(1,9999);
-            $id="CP".$id;
-            $que="SELECT * from `pharmacies` where ID='$id'";
+            $id="CPP".$id;
+            $que="SELECT * from `medicines` where ID='$id'";
             $result=mysqli_query($con,$que);
             if(mysqli_num_rows($result)==0)
             {
@@ -51,10 +51,9 @@
           }
           $didUpload=move_uploaded_file($_FILES["myfile"]["tmp_name"], $uploadPath.$id.'.'.$fileExtension);
           if ($didUpload) {
-
               $err=0;
               $featured=0;
-              $query = "INSERT INTO `pharmacies` values('$id','$name','$email',$mobile,'$address1','$address2','$city',$pincode,'$displayaddress','$description','$fileExtension')";
+              $query = "INSERT INTO `medicines` values('$id','$name','$brand','$salt','$disease','$barcode','$category',0,'$fileExtension')";
               if(mysqli_query($con,$query))
               {
                 $err=0;
@@ -82,8 +81,8 @@
       ?>
       <div class="main-panel">
         <div class="container">
-          <h3 style="padding-bottom:20px; padding-top:40px">Add Pharmacy</h3>
-          <button class="mybtn btn-blue" onclick="location.href='./viewpharmacy.php'">Manage Pharmacies</button><br />
+          <h3 style="padding-bottom:20px; padding-top:40px">Add Product</h3>
+          <button class="mybtn btn-blue" onclick="location.href='./viewproducts.php'">Manage Products</button>
           <?php
           if(isset($err))
           {
@@ -98,36 +97,50 @@
           }
           ?>
           <form class="myloginform1" method="post" action="" enctype="multipart/form-data" style=" position:relative;display:flex; flex-wrap: wrap; justify-content:center; text-align:center;">
-
             <div class="myformgroup1" style="flex:0 0 45%; margin-right:10px;">
               <input class="myformcontrol1" type="text" name="name" placeholder="Name" required/>
             </div>
             <div class="myformgroup1" style="flex:0 0 45%; margin-right:10px;">
-              <input class="myformcontrol1" type="email" name="email" placeholder="Email" required/>
+              <select class="myformcontrol1" name="brand">
+                <?php
+                $query="SELECT * from `medbrands` ORDER BY Name";
+                $result = mysqli_query($con,$query) or die(mysql_error());
+                $rows = mysqli_num_rows($result);
+                while($record=mysqli_fetch_assoc($result))
+                {
+                  echo "<option value='$record[ID]'>
+                  $record[Name]
+                  </option>";
+                }
+                ?>
+              </select>
             </div>
             <div class="myformgroup1" style="flex:0 0 45%; margin-right:10px;">
-              <input class="myformcontrol1" type="tel" name="mobile" placeholder="Mobile" required/>
+              <input class="myformcontrol1" type="text" name="salt" placeholder="Salt" required/>
             </div>
             <div class="myformgroup1" style="flex:0 0 45%; margin-right:10px;">
-              <input class="myformcontrol1" type="text" name="address1" placeholder="Address Line 1" required/>
+              <input class="myformcontrol1" type="text" name="disease" placeholder="Disease" required/>
             </div>
             <div class="myformgroup1" style="flex:0 0 45%; margin-right:10px;">
-              <input class="myformcontrol1" type="text" name="address2" placeholder="Address Line 2" required/>
+              <input class="myformcontrol1" type="text" name="barcode" placeholder="Barcode" required/>
             </div>
             <div class="myformgroup1" style="flex:0 0 45%; margin-right:10px;">
-              <input class="myformcontrol1" type="text" name="city" placeholder="City" required/>
+              <select class="myformcontrol1" name="category">
+                <?php
+                $query="SELECT * from `medicinecategory` ORDER BY Category";
+                $result = mysqli_query($con,$query) or die(mysql_error());
+                $rows = mysqli_num_rows($result);
+                while($record=mysqli_fetch_assoc($result))
+                {
+                  echo "<option value='$record[ID]'>
+                  $record[Category]
+                  </option>";
+                }
+                ?>
+              </select>
             </div>
             <div class="myformgroup1" style="flex:0 0 45%; margin-right:10px;">
-              <input class="myformcontrol1" type="text" name="pincode" placeholder="Pincode" required/>
-            </div>
-            <div class="myformgroup1" style="flex:0 0 45%; margin-right:10px;">
-              <input class="myformcontrol1" type="text" name="displayaddress" placeholder="Display Address" required/>
-            </div>
-            <div class="myformgroup1" style="flex:0 0 45%; margin-right:10px;">
-              <textarea class="myformcontrol1" type="" name="description" placeholder="Description" required/></textarea>
-            </div>
-            <div class="myformgroup1" style="flex:0 0 45%; margin-right:10px;">
-              <input class="myformcontrol1" type="file" name="myfile" placeholder="Name" required/>
+              <input class="myformcontrol1" type="file" name="myfile" placeholder="" required/>
             </div>
 
             <div class="myformgroup1" style="flex:0 0 100%; margin-right:10px; text-align:center;">

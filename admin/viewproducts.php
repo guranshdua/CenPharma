@@ -6,34 +6,7 @@
   <?php
   require("../auth/db.php");
   require("./auth/authlogout.php");
-  if(isset($_POST['name']))
-  {
-    $name=$_POST['name'];
-    $featured=0;
-    $check=1;
-    while($check==1)
-    {
-      $id=rand(1,9999);
-      $id="CPC".$id;
-      $que="SELECT * from `medicinecategory` where ID='$id'";
-      $result=mysqli_query($con,$que);
-      if(mysqli_num_rows($result)==0)
-      {
-        $check=0;
-      }
-      else {
-        $check=1;
-      }
-    }
-    $query = "INSERT INTO `medicinecategory` values('$id','$name',$featured)";
-    if(mysqli_query($con,$query))
-    {
-      $err=0;
-    }
-    else {
-      $err=1;
-    }
-  }
+
   ?>
   <body>
     <?php
@@ -45,8 +18,8 @@
       ?>
       <div class="main-panel">
         <div class="container">
-          <h3 style="padding-bottom:20px; padding-top:40px">View Products</h3>
-          <button class="mybtn btn-blue" onclick="location.href='./addpharmacy.php'">Add New Pharmacy</button>
+          <h3 style="padding-bottom:20px; padding-top:40px">Manage Products</h3>
+          <button class="mybtn btn-blue" onclick="location.href='./addproduct.php'">Add New Product</button>
           <?php
           if(isset($_GET['res']))
           {
@@ -71,17 +44,25 @@
             <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Email</th>
-            <th>Contact</th>
-            <th>Address</th>
-            <th>Manage</th>
+            <th>Brand</th>
+            <th>Salt</th>
+            <th>Barcode</th>
+            <th>Category</th>
+            <th>Featured</th>
             </tr>
             <?php
-            $query="SELECT * from `pharmacies`";
+            $query="SELECT * from `medicines`";
             $result = mysqli_query($con,$query) or die(mysql_error());
             $rows = mysqli_num_rows($result);
             while($record=mysqli_fetch_assoc($result))
             {
+              $query1="SELECT `Name` from `medbrands` WHERE ID='$record[Brand]'";
+              $query1;
+              $result1 = mysqli_query($con,$query1);
+              $record1=mysqli_fetch_assoc($result1);
+              $query2="SELECT `Category` from `medicinecategory` WHERE ID='$record[Category]'";
+              $result2 = mysqli_query($con,$query2) or die(mysql_error());
+              $record2=mysqli_fetch_assoc($result2);
               echo "<tr>
               <td>
               $record[ID]
@@ -90,16 +71,19 @@
               $record[Name]
               </td>
               <td>
-              $record[Email]
+              $record1[Name]
               </td>
               <td>
-              $record[Mobile]
+              $record[Salts]
               </td>
               <td>
-              $record[DisplayAddress]
+              $record[Barcode]
               </td>
               <td>
-              <button class='btn' onclick='location.href=\"./functions.php?fid=deletepharmacy&pid=$record[ID]\"'>Delete Pharmacy</button>
+              $record2[Category]
+              </td>
+              <td>
+              <button class='btn' onclick='location.href=\"./functions.php?fid=deleteproduct&pid=$record[ID]\"'>Delete Product</button>
               </td>
               </tr>";
             }

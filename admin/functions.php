@@ -65,6 +65,30 @@ if(isset($_GET['fid']))
       header("location: ./viewpharmacy.php?res=0");
     }
   }
+  elseif($fid=="deletebrand")
+  {
+    $query="DELETE FROM `medbrands` where ID='$pid'";
+    if(mysqli_query($con,$query))
+    {
+      header("location: ./viewbrands.php?res=1");
+    }
+    else
+    {
+      header("location: ./viewbrands.php?res=0");
+    }
+  }
+  elseif($fid=="deleteproduct")
+  {
+    $query="DELETE FROM `medicines` where ID='$pid'";
+    if(mysqli_query($con,$query))
+    {
+      header("location: ./viewproducts.php?res=1");
+    }
+    else
+    {
+      header("location: ./viewproducts.php?res=0");
+    }
+  }
 }
 else {
   header("location: ./index.php");

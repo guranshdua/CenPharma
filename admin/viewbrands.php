@@ -6,7 +6,6 @@
   <?php
   require("../auth/db.php");
   require("./auth/authlogout.php");
-
   ?>
   <body>
     <?php
@@ -18,8 +17,8 @@
       ?>
       <div class="main-panel">
         <div class="container">
-          <h3 style="padding-bottom:20px; padding-top:40px">Manage Pharmacies</h3>
-          <button class="mybtn btn-blue" onclick="location.href='./addpharmacy.php'">Add New Pharmacy</button>
+          <h3 style="padding-bottom:20px; padding-top:40px">Manage Brands</h3>
+          <button class="mybtn btn-blue" onclick="location.href='./addbrand.php'">Add New Brand</button>
           <?php
           if(isset($_GET['res']))
           {
@@ -44,13 +43,11 @@
             <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Email</th>
-            <th>Contact</th>
             <th>Address</th>
-            <th>Manage</th>
+            <th>Delete</th>
             </tr>
             <?php
-            $query="SELECT * from `pharmacies`";
+            $query="SELECT * from `medbrands`";
             $result = mysqli_query($con,$query) or die(mysql_error());
             $rows = mysqli_num_rows($result);
             while($record=mysqli_fetch_assoc($result))
@@ -63,16 +60,10 @@
               $record[Name]
               </td>
               <td>
-              $record[Email]
+              $record[Address]
               </td>
               <td>
-              $record[Mobile]
-              </td>
-              <td>
-              $record[DisplayAddress]
-              </td>
-              <td>
-              <button class='btn' onclick='location.href=\"./functions.php?fid=deletepharmacy&pid=$record[ID]\"'>Delete Pharmacy</button>
+              <button class='btn' onclick='location.href=\"./functions.php?fid=deletebrand&pid=$record[ID]\"'>Delete Brand</button>
               </td>
               </tr>";
             }
