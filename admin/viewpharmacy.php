@@ -33,7 +33,7 @@
               }
               else {
                 echo "<p>
-                Error while updating.
+                Error while updating. Remove all accounts associated with the Pharmacy before.
                 </p>";
               }
 
@@ -72,7 +72,16 @@
               $record[DisplayAddress]
               </td>
               <td>
-              <button class='btn' onclick='location.href=\"./functions.php?fid=deletepharmacy&pid=$record[ID]\"'>Delete Pharmacy</button>
+              <button class='btn' onclick=";
+              if($record['ID']=="CP1000")
+              {
+                echo "";
+              }
+              else
+              {
+              echo "'location.href=\"./functions.php?fid=deletepharmacy&pid=$record[ID]\"'";
+              }
+              echo ">Delete Pharmacy</button>
               </td>
               </tr>";
             }

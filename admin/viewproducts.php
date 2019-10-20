@@ -49,6 +49,8 @@
             <th>Barcode</th>
             <th>Category</th>
             <th>Featured</th>
+            <th>Manage</th>
+            <th>Delete</th>
             </tr>
             <?php
             $query="SELECT * from `medicines`";
@@ -81,6 +83,12 @@
               </td>
               <td>
               $record2[Category]
+              </td>
+              <td>
+              $record[Featured]
+              </td>
+              <td>
+              <button class='btn' onclick='location.href=\"./functions.php?fid=togglefeaturedproducts&pid=$record[ID]\"'>Toggle Featured</button>
               </td>
               <td>
               <button class='btn' onclick='location.href=\"./functions.php?fid=deleteproduct&pid=$record[ID]\"'>Delete Product</button>

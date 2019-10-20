@@ -31,28 +31,56 @@ if(isset($_GET['fid']))
         header("location: ./viewcategory.php?res=0");
       }
     }
-    elseif($record['Featured']==1)
+
+
+  }
+  elseif($fid=="togglefeaturedproducts")
+  {
+    $query="SELECT Featured FROM `medicines` where ID='$pid'";
+    $result = mysqli_query($con,$query);
+    $rows = mysqli_num_rows($result);
+    $record = mysqli_fetch_assoc($result);
+    if($record['Featured']==0)
     {
-          $query="UPDATE `medicinecategory` SET Featured=0 WHERE ID='$pid'";
+      $query="SELECT * FROM `medicines` where Featured=1";
+      $result = mysqli_query($con,$query);
+      $rows = mysqli_num_rows($result);
+      if($rows<6)
+      {
+          $query="UPDATE `medicines` SET Featured=1 WHERE ID='$pid'";
           echo $query;
           if(mysqli_query($con,$query))
           {
-              header("location: ./viewcategory.php?res=1");
+              header("location: ./viewproducts.php?res=1");
           }
-    }
-  }
-  elseif ($fid=="deletecategory") {
-    $query="DELETE FROM `medicinecategory` where ID='$pid'";
-    if(mysqli_query($con,$query))
-    {
-      header("location: ./viewcategory.php?res=1");
-    }
-    else
-    {
-      header("location: ./viewcategory.php?res=0");
-    }
 
+      }
+      else
+      {
+        header("location: ./viewproductsphp?res=0");
+      }
+    }
+  elseif($record['Featured']==1)
+  {
+        $query="UPDATE `medicines` SET Featured=0 WHERE ID='$pid'";
+        echo $query;
+        if(mysqli_query($con,$query))
+        {
+            header("location: ./viewproducts.php?res=1");
+        }
   }
+}
+elseif ($fid=="deletecategory") {
+  $query="DELETE FROM `medicinecategory` where ID='$pid'";
+  if(mysqli_query($con,$query))
+  {
+    header("location: ./viewcategory.php?res=1");
+  }
+  else
+  {
+    header("location: ./viewcategory.php?res=0");
+  }
+}
   elseif($fid=="deletepharmacy")
   {
     $query="DELETE FROM `pharmacies` where ID='$pid'";
