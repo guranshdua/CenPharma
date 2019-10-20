@@ -88,7 +88,7 @@
         <input class="myformcontrol" type="text" name="city" placeholder="City" required/>
       </div>
       <div class="myformgroup" style="flex:0 0 45%; margin-right:10px;">
-        <input class="myformcontrol" type="number" name="picode" placeholder="Pincode" required/>
+        <input class="myformcontrol" type="number" name="pincode" placeholder="Pincode" required/>
       </div>
       <div class="myformgroup" style="flex:0 0 45%; margin-right:10px;">
         <input class="myformcontrol" type="email" name="email" placeholder="Email" required/>

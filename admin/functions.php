@@ -117,6 +117,18 @@ elseif ($fid=="deletecategory") {
       header("location: ./viewproducts.php?res=0");
     }
   }
+  elseif($fid=="deleteadmin")
+  {
+    $query="DELETE FROM `admins` where ID='$pid'";
+    if(mysqli_query($con,$query))
+    {
+      header("location: ./viewadmins.php?res=1");
+    }
+    else
+    {
+      header("location: ./viewadmins.php?res=0");
+    }
+  }
 }
 else {
   header("location: ./index.php");
